@@ -1,0 +1,26 @@
+<div class="banner">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm">
+      <div class="cards">
+        <% @bookmarks.each do |bookmark| %>
+          <div class="card-bookmark">
+            <div class="card-image">
+              <%= image_tag("#{bookmark.movie.poster_url}") %>
+            </div>
+            <div class="card-text">
+              <%= "#{bookmark.movie.title} || #{bookmark.movie.rating} ⭐" %>
+              <p><%= bookmark.comment %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= render "bookmarks/form", bookmark: @bookmark %>
+</div>
